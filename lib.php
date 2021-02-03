@@ -106,11 +106,11 @@ function mass_enroll($cir, $course, $context, $data) {
 
     $result .= get_string('im:using_role', 'local_mass_enroll', $role->name) . "\n";
 
-    $plugin = enrol_get_plugin('manual');
+    $plugin = enrol_get_plugin('database');
     // Moodle 2.x enrolment and role assignment are different.
     // Assure course has manual enrolment plugin instance we are going to use.
     // Only one instance is allowed; see enrol/manual/lib.php get_new_instance().
-    $instance = $DB->get_record('enrol', array('courseid' => $course->id, 'enrol' => 'manual'));
+    $instance = $DB->get_record('enrol', array('courseid' => $course->id, 'enrol' => 'database'));
     if (empty($instance)) {
         // Only add an enrol instance to the course if non-existent.
         $enrolid = $plugin->add_instance($course);
@@ -256,7 +256,7 @@ function mass_unenroll($cir, $course, $context, $data) {
     $useridfield = $data->firstcolumn;
     $unenrollablecount = 0;
 
-    $manualenrolplugin = enrol_get_plugin('manual');
+    $manualenrolplugin = enrol_get_plugin('database');
     $extraenrolplugins = [];
     foreach ($data->extramethods as $enrol) {
         $extraenrolplugins[$enrol] = enrol_get_plugin($enrol);
@@ -266,7 +266,7 @@ function mass_unenroll($cir, $course, $context, $data) {
     // Moodle 2.x enrolment and role assignment are different.
     // Assure course has manual enrolment plugin instance we are going to use.
     // Only one instance is allowed; see enrol/manual/lib.php get_new_instance().
-    $manualinstance = $DB->get_record('enrol', array('courseid' => $course->id, 'enrol' => 'manual'));
+    $manualinstance = $DB->get_record('enrol', array('courseid' => $course->id, 'enrol' => 'database'));
     if (empty($manualinstance)) {
         // Only add an enrol instance to the course if non-existent.
         $enrolid = $manualenrolplugin->add_instance($course);
@@ -453,7 +453,7 @@ function local_mass_enroll_get_enrolment_methods() {
     $methods = [];
     foreach ($list as $instance) {
         $enrol = $instance->get_name();
-        if ($enrol == 'manual') {
+        if ($enrol == 'database') {
             continue; // This is a forced default.
         }
         $methods[$enrol] = get_string('pluginname', 'enrol_' . $enrol);

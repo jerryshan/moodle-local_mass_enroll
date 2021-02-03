@@ -79,7 +79,7 @@ $string['creategroupings'] = 'Create  grouping(s) if needed';
 $string['firstcolumn'] = 'First column contains';
 $string['roleassign'] = 'Role to assign';
 $string['idnumber'] = 'Id number';
-$string['username'] = 'Login';
+$string['username'] = 'Username';
 $string['mail_enrolment_subject'] = 'Bulk enrolments on {$a}';
 $string['mail_unenrolment_subject'] = 'Bulk unenrolments on {$a}';
 $string['mail_enrolment'] = '
@@ -136,7 +136,7 @@ You should prepare it from your usual spreadsheet program from official lists of
 and add if needed a column with groups to which you want these users to be added. Finally export it as CSV. (*)</p>
 
 <p>
-<b> The first one must contains a unique account identifier </b>: idnumber (by default) login or email  of the target user. (**). </p>
+<b> The first one must contains a unique account identifier </b>: idnumber (by default) username or email  of the target user. (**). </p>
 
 <p>
 The second <b>if present,</b> contains the group name in wich you want that user to be added. </p>
@@ -240,7 +240,7 @@ You should prepare it from your usual spreadsheet program from an official lists
 by exporting the course gradebook to CSV, or use the very same file as the one used to mass enrol users. (*)</p>
 
 <p>
-<b> The first one must contains a unique account identifier </b>: idnumber (by default) login or email  of the target user. (**)</p>
+<b> The first one must contains a unique account identifier </b>: idnumber (by default) username or email  of the target user. (**)</p>
 
 <p>
 All other columns will be ignored. </p>

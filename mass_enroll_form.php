@@ -84,13 +84,13 @@ class mass_enroll_form extends moodleform {
             'email' => get_string('email')
         );
         $mform->addElement('select', 'firstcolumn', get_string('firstcolumn', 'local_mass_enroll'), $ids);
-        $mform->setDefault('firstcolumn', 'idnumber');
+        $mform->setDefault('firstcolumn', 'username');
 
         $mform->addElement('selectyesno', 'creategroups', get_string('creategroups', 'local_mass_enroll'));
         $mform->setDefault('creategroups', 1);
 
         $mform->addElement('selectyesno', 'creategroupings', get_string('creategroupings', 'local_mass_enroll'));
-        $mform->setDefault('creategroupings', 1);
+        $mform->setDefault('creategroupings', 0);
 
         $mform->addElement('selectyesno', 'mailreport', get_string('mailreport', 'local_mass_enroll'));
         $mform->setDefault('mailreport', (int)$config->mailreportdefault);
